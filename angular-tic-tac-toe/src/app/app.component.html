@@ -1,0 +1,19 @@
+<div class="app-area">
+  <div class="status">
+    Next player: <span>{{ currentPlayer }}</span>
+  </div>
+  <div class="winner" *ngIf="winner">
+    Winner: <span>{{ winner }}</span>
+  </div>
+  <div class="board">
+    <div class="row" *ngFor="let row of [0, 1, 2]">
+      <button 
+        class="square" 
+        *ngFor="let col of [0, 1, 2]" 
+        (click)="makeMove(row, col)">
+        {{ board[row][col] }}
+      </button>
+    </div>
+  </div>
+  <button class="reset-button" (click)="newGame()">Reset Game</button>
+</div>
